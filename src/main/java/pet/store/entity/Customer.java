@@ -23,7 +23,7 @@ public class Customer {
 @Id
 @GeneratedValue(strategy = GenerationType.IDENTITY)
 
-private Long   customerId;
+private Long CustomerId;
 private String customerFirstName;
 private String customerLastName;
 
@@ -35,6 +35,7 @@ private String customerEmail;
 @ToString.Exclude
 @ManyToMany (mappedBy = "customers", cascade = CascadeType.PERSIST)
 private Set <PetStore> PetStores = new HashSet<>();
+
 
 
 }
