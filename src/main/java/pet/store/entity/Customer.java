@@ -9,7 +9,9 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToMany;
+import jakarta.persistence.ManyToOne;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.ToString;
@@ -26,16 +28,16 @@ public class Customer {
 private Long CustomerId;
 private String customerFirstName;
 private String customerLastName;
+private String customerEmail;
 
 
 @Column(unique = true)
-private String customerEmail;
+
 
 @EqualsAndHashCode.Exclude
 @ToString.Exclude
 @ManyToMany (mappedBy = "customers", cascade = CascadeType.PERSIST)
 private Set <PetStore> PetStores = new HashSet<>();
-
 
 
 }
